@@ -1,11 +1,11 @@
 var video;
-
+var volume;
 window.addEventListener("load", function() {
-	console.log("Good job opening the window")
-
+	//console.log("Good job opening the window")
+	video = document.querySelector("#play").addEventListener("click", function() {
+	volume = document.querySelctor()
 });
 
-// document.querySelector("#play").addEventListener("click", function() {
 // 	console.log("Play Video");
 // });
 
