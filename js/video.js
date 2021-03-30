@@ -2,11 +2,11 @@ var video;
 var volume;
 window.addEventListener("load", function() {
 	//console.log("Good job opening the window")
-
-	volume = document.querySelctor("#volume");
+	video =document.querySelector("#myVideo");
+	volume = document.querySelector("#volume");
 });
 
-document.querySelctor("play").addEventListener("click", function() {
+document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play Video");
 	video.play();
 	volume.innerHTML = "100%"
@@ -17,12 +17,12 @@ document.querySelector("#pause").addEventListener("click", function(){
 	video.pause();
 });
 
-document.querySelctor("#faster").addEventListener("click", function(){
+document.querySelector("#faster").addEventListener("click", function(){
 	video.playbackRate = video.playbackRate * 1.05;
 	console.log("New speed is " + video.playbackRate);
 });
 
-document.querySelctor("#slower").addEventListener("click", function(){
+document.querySelector("#slower").addEventListener("click", function(){
 	video.playbackRate = video.playbackRate * 0.95;
 	console.log("New speed is " + video.playbackRate);
 });
@@ -35,7 +35,7 @@ document.querySelector("#skip").addEventListener("click", function(){
 	}
 });
 
-document.querySelctor("#mute").addEventListener("click", function(){
+document.querySelector("#mute").addEventListener("click", function(){
 	console.log("Mute Video");
 	if (video.muted == false){
 		video.muted = true
