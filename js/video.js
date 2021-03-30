@@ -10,6 +10,8 @@ document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play Video");
 	video.play();
 	volume.innerHTML = "100%"
+
+
 });
 
 document.querySelector("#pause").addEventListener("click", function(){
@@ -54,15 +56,14 @@ document.querySelector("#mute").addEventListener("click", function(){
 });
 
 
-
-document.querySelector("#orig").addEventListener("click", function(){
-	console.log("Original");
-	video.classList.removed("oldSchool")
-});
-
 document.querySelector("#vintage").addEventListener("click", function(){
 	console.log("Old School");
 	video.classList.add("oldSchool")
+});
+
+document.querySelector("#orig").addEventListener("click", function(){
+	console.log("Original");
+	video.classList.remove("oldSchool")
 });
 
 document.querySelector("#slider").addEventListener("change", function(){
@@ -71,5 +72,8 @@ document.querySelector("#slider").addEventListener("change", function(){
 	console.log(this.value)
 	volume.innerHTML = this.value + "%"
 });
+
+
+
 
 
