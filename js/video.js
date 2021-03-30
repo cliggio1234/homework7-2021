@@ -28,11 +28,16 @@ document.querySelector("#slower").addEventListener("click", function(){
 });
 
 document.querySelector("#skip").addEventListener("click", function(){
-	console.log("Original location" + video.currentTime);
-	n_time = video,currentTime +15;
-	if (n_time >= video.duration){
-		video.load();
+	if(video.currentTime < video.duration - 15){
+		video.currentTime += 15;
 	}
+	else{
+		video.currentTime = 0;
+		console.log("Start of Video");
+	}
+	console.log(video.duration)
+	console.log("Current Viewing Location" + video.currentTime);
+	video.play();
 });
 
 document.querySelector("#mute").addEventListener("click", function(){
@@ -50,17 +55,17 @@ document.querySelector("#mute").addEventListener("click", function(){
 
 
 
-document.querySelector("#original").addEventListener("click", function(){
+document.querySelector("#orig").addEventListener("click", function(){
 	console.log("Original");
 	video.classList.removed("oldSchool")
 });
 
-document.querySelector("#volumeSlider").addEventListener("change", function(){
+document.querySelector("#vintage").addEventListener("click", function(){
 	console.log("Old School");
 	video.classList.add("oldSchool")
 });
 
-document.querySelector("#old").addEventListener("click", function(){
+document.querySelector("#slider").addEventListener("change", function(){
 	console.log("Volume Slider");
 	video.volume = this.value/100;
 	console.log(this.value)
