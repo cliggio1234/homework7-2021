@@ -1,4 +1,4 @@
-var video = document.querySelector("#myVideo");
+var video;
 var volume;
 window.addEventListener("load", function() {
 	//console.log("Good job opening the window")
@@ -6,81 +6,64 @@ window.addEventListener("load", function() {
 	volume = document.querySelctor("#volume");
 });
 
-//document.querySelctor("play").addEventListener("click", function() {
-	//console.log("Play Video");
-	//video.play();
-	//volume.innerHTML = "100%"
-//});
-
-//document.querySelector("#pause").addEventListener("click", function(){
-//	console.log("Pause Video");
-//	video.pause();
-//});
-
-function getVid(){
-	video = document.querySelector("#myVideo");
-}
-function playVid(){
+document.querySelctor("play").addEventListener("click", function() {
 	console.log("Play Video");
-	volume.innerHTML = "100%"
 	video.play();
-	
+	volume.innerHTML = "100%"
+});
 
-}
-
-function pauseVid(){
+document.querySelector("#pause").addEventListener("click", function(){
 	console.log("Pause Video");
 	video.pause();
-}
+});
 
-function increaseSpeed(){
-	video.playbackRate = video.playbackRate * 0.95;
-	console.log("Speed is "+ video.playbackRate);
-}
-
-function descreaseSpeed(){
+document.querySelctor("#faster").addEventListener("click", function(){
 	video.playbackRate = video.playbackRate * 1.05;
-	console.log("Speed is "+ video.playbackRate);
-}
+	console.log("New speed is " + video.playbackRate);
+});
 
-function skipAhead(){
-	video.currentTime = video.currentTime + 15;
-	if (video.ended){
+document.querySelctor("#slower").addEventListener("click", function(){
+	video.playbackRate = video.playbackRate * 0.95;
+	console.log("New speed is " + video.playbackRate);
+});
+
+document.querySelector("#skip").addEventListener("click", function(){
+	console.log("Original location" + video.currentTime);
+	n_time = video,currentTime +15;
+	if (n_time >= video.duration){
 		video.load();
-		video.play();
-		playbackRate = 1;
 	}
-	console.log("Cureent location is " + video.currentTime)
-}
+});
 
-function mute(){
-	if(video.muted){
-		video.muted = false;
-		console.log("Unmuted");
+document.querySelctor("#mute").addEventListener("click", function(){
+	console.log("Mute Video");
+	if (video.muted == false){
+		video.muted = true
+		this.innerHTML = "Unmute"
 	}
-	else {
-		video.muted = true;
-		console.log("Muted")
+	else{
+			this.innerHTML = "Mute"
+			video.muted = false
 	}
-}
-
-function changeVolume(){
-	console.log(volumeSlider.value);
-	var val_slider = document.querySelector("#volume").innerHTML;
-	val_slider = volumeSlider.value;
-	video.volume = val_slider / 100;
-	document.querySelector('#volume').innerHTML = val_slider + '%';
-}
-
-function gray(){
-	video.classList.add("grayscale");
-	console.log("In grayscale");
-}
+	console.log(video.muted)
+});
 
 
 
+document.querySelector("#original").addEventListener("click", function(){
+	console.log("Original");
+	video.classList.removed("oldSchool")
+});
+
+document.querySelector("#old").addEventListener("click", function(){
+	console.log("Volume Slider");
+	video.volume = this.value/100;
+	console.log(this.value)
+	volume.innerHTML = this.value + "%"
+});
 
 
-
-
-
+document.querySelector("#volumeSlider").addEventListener("change", function(){
+	console.log("Old School");
+	video.classList.add("oldSchool")
+});
