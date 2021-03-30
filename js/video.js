@@ -32,17 +32,17 @@ function pauseVid(){
 }
 
 function increaseSpeed(){
-	video.playbackRate = video.playbackRate * 0.8;
+	video.playbackRate = video.playbackRate * 0.95;
 	console.log("Speed is "+ video.playbackRate);
 }
 
 function descreaseSpeed(){
-	video.playbackRate = video.playbackRate * 1.25;
+	video.playbackRate = video.playbackRate * 1.05;
 	console.log("Speed is "+ video.playbackRate);
 }
 
 function skipAhead(){
-	video.currentTime = video.currentTime + 60;
+	video.currentTime = video.currentTime + 15;
 	if (video.ended){
 		video.load();
 		video.play();
