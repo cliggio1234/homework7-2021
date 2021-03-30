@@ -22,7 +22,9 @@ function getVid(){
 }
 function playVid(){
 	console.log("Play Video");
+	volume.innerHTML = "100%"
 	video.play();
+	
 
 }
 
